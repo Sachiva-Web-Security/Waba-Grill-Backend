@@ -1,14 +1,17 @@
-const mysql = require("mysql2/promise");
+const mysql = require("mysql2");
 
-const db = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "12345", // agar password set nahi kiya to blank
-  database: "wavagrill", // apna database name likho
-  port: 3306
+const pool = mysql.createPool({
+  host: process.env.MYSQLHOST || "localhost",
+  user: process.env.MYSQLUSER || "root",
+  password: process.env.MYSQLPASSWORD || "",
+  database: process.env.MYSQLDATABASE || "wavagrill",
+  port: process.env.MYSQLPORT || 3306,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
 
-db.getConnection((err, connection) => {
+pool.getConnection((err, connection) => {
   if (err) {
     console.log("Database connection failed:", err);
   } else {
@@ -17,4 +20,4 @@ db.getConnection((err, connection) => {
   }
 });
 
-module.exports = db;
+module.exports = pool.promise();
