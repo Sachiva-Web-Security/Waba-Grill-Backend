@@ -47,6 +47,9 @@ app.use(cors({
     "https://www.wavagrill.com",
     "https://wavagrill.com",
     "https://waba-grill-frontend.vercel.app",
+    "http://www.wavagrill.com",
+    "http://wavagrill.com",
+    "http://waba-grill-frontend.vercel.app",
     "http://localhost:3000",
     "http://localhost:3001"
   ],
