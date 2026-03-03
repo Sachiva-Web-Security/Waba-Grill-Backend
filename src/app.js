@@ -42,7 +42,19 @@ const cartRoutes = require("./routes/cartRoutes");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://www.wavagrill.com",
+    "https://wavagrill.com",
+    "https://waba-grill-frontend.vercel.app",
+    "http://localhost:3000",
+    "http://localhost:3001"
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 app.use(express.json());
 
 // ✅ Correct uploads path
