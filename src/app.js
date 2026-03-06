@@ -39,7 +39,7 @@ const categoryRoutes = require("./routes/categoryRoutes");
 const menuRoutes = require("./routes/menuRoutes");
 const deliveryRoutes = require("./routes/deliveryRoutes");
 const cartRoutes = require("./routes/cartRoutes");
-
+const franchiseRoutes = require("./routes/franchiseRoutes");
 const app = express();
 
 app.use(cors({
@@ -71,5 +71,7 @@ app.use("/api/menu", menuRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/delivery", deliveryRoutes);
 app.use("/api/cart", cartRoutes);
+
+app.use("/api/franchise", franchiseRoutes);
 
 module.exports = app;
