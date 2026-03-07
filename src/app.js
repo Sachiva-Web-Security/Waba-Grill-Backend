@@ -40,6 +40,8 @@ const menuRoutes = require("./routes/menuRoutes");
 const deliveryRoutes = require("./routes/deliveryRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const franchiseRoutes = require("./routes/franchiseRoutes");
+
+const menuImageRoutes = require("./routes/menuImageRoutes");
 const app = express();
 
 app.use(cors({
@@ -73,5 +75,8 @@ app.use("/api/delivery", deliveryRoutes);
 app.use("/api/cart", cartRoutes);
 
 app.use("/api/franchise", franchiseRoutes);
+
+app.use("/api/menu-image", menuImageRoutes);
+app.use("/uploads",express.static("uploads"))
 
 module.exports = app;
