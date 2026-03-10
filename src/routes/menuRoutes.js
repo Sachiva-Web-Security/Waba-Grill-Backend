@@ -8,6 +8,8 @@ const {
   getMenuItems,
   getMenuByCategory,
   createMenuItem,
+  updateMenuPrice,
+  deleteMenuItem,
 } = require("../controllers/menuController");
 
 // Public Routes
@@ -20,6 +22,20 @@ router.post(
   authMiddleware,
   adminMiddleware,
   createMenuItem
+);
+
+router.put(
+  "/:id/price",
+  authMiddleware,
+  adminMiddleware,
+  updateMenuPrice
+);
+
+router.delete(
+  "/:id",
+  authMiddleware,
+  adminMiddleware,
+  deleteMenuItem
 );
 
 module.exports = router;
